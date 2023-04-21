@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 11:20:32 by svalente          #+#    #+#             */
-/*   Updated: 2023/04/10 14:07:29 by svalente         ###   ########.fr       */
+/*   Updated: 2023/04/21 16:51:34 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,19 @@ int	handle_no_event(void *data)
 	return (0);
 }
 
-int	handle_input(int keysym, t_data *data)
+int	handle_keypress(int keysym, t_data *data)
 {
 	if (keysym == XK_Escape)
 		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+    printf("Keypress: %d\n", keysym);
 	return (0);
 }
 
-int	leave(char *msg)
+int handle_keyrelease(int keysym, void *data)
 {
-	printf("%s", msg);
-	exit(0);
-	return (0);
+	(void)data;
+    printf("Keyrealese: %d\n", keysym);
+    return (0);
 }
 
 int	main(void)
