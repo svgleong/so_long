@@ -6,7 +6,7 @@
 #    By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/08 10:43:02 by svalente          #+#    #+#              #
-#    Updated: 2023/04/11 11:37:46 by svalente         ###   ########.fr        #
+#    Updated: 2023/05/31 12:27:39 by svalente         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ $(NAME): $(OBJ)
 		make -C $(LIBFT_PATH)
 		make -C $(FT_PRINTF_PATH)
 		make -s -C minilibx-linux
-		$(CC) $(CFLAGS) $(OBJ) $(LIBFT_PATH) $(FT_PRINTF) $(LMLX_FLAGS) $(MLX_INCLUDE) -o $(NAME)
+		$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(FT_PRINTF) $(LMLX_FLAGS) $(MLX_INCLUDE) -o $(NAME)
 
 clean:
 		$(RM) $(OBJ)

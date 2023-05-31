@@ -6,15 +6,37 @@
 /*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 11:20:32 by svalente          #+#    #+#             */
-/*   Updated: 2023/04/21 16:51:34 by svalente         ###   ########.fr       */
+/*   Updated: 2023/05/31 12:43:09 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+int leave(void *param)
+{
+	t_data	*data;
+
+	data = (t_data *)param;
+	mlx_clear_window(data->mlx_ptr, data->win_ptr);
+	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+	mlx_destroy_display(data->mlx_ptr);
+	exit(0);
+}
+
 int	handle_no_event(void *data)
 {
 	(void)data;
+	return (0);
+}
+
+int	handle_input(int key, void *param)
+{
+	t_data *data;
+
+	data = (t_data *)param;
+	printf("Key -> %d\n", key);
+	if (key == XK_Escape)
+		leave(data);
 	return (0);
 }
 
@@ -53,8 +75,7 @@ int	main(void)
 	data.collectible = mlx_xpm_file_to_image(data.mlx_ptr,
 			"./wall.xpm", &x, &y);
 	mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, data.collectible, 30, 0);
-	mlx_hook(data.win_ptr, 17, 0, leave,
-		(void *)"Did you give up? 😲​​\n");
+	mlx_hook(data.win_ptr, 17, 0, leave, &data);
 	mlx_loop(data.mlx_ptr);
 	mlx_destroy_display(data.mlx_ptr);
 	free(data.mlx_ptr);
