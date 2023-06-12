@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 14:54:27 by svalente          #+#    #+#             */
-/*   Updated: 2022/12/09 15:09:45 by svalente         ###   ########.fr       */
+/*   Updated: 2023/06/11 14:58:56 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 # endif
 
 char	*get_next_line(int fd);
-size_t	ft_strlen(char *s);
-char	*ft_strjoin(char *s1, char *s2);
+size_t	ft_strlen_gnl(char *s);
+char	*ft_strjoin_gnl(char *s1, char *s2);
 bool	ft_clean_buff(char *str);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/08 10:43:02 by svalente          #+#    #+#              #
-#    Updated: 2023/05/31 12:27:39 by svalente         ###   ########.fr        #
+#    Updated: 2023/06/11 15:04:07 by svalente         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,9 +43,13 @@ $(NAME): $(OBJ)
 		$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(FT_PRINTF) $(LMLX_FLAGS) $(MLX_INCLUDE) -o $(NAME)
 
 clean:
+		make clean -C $(LIBFT_PATH)
+		make clean -C $(FT_PRINTF_PATH)
 		$(RM) $(OBJ)
 		
 fclean:		clean
+			make fclean -C $(LIBFT_PATH)
+			make fclean -C $(FT_PRINTF_PATH)
 			$(RM) $(NAME)
 	
 re:			fclean all

@@ -6,13 +6,13 @@
 /*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:12:50 by svalente          #+#    #+#             */
-/*   Updated: 2022/12/08 15:45:52 by svalente         ###   ########.fr       */
+/*   Updated: 2023/06/11 14:59:29 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-size_t	ft_strlen(char *s)
+size_t	ft_strlen_gnl(char *s)
 {
 	size_t	i;
 
@@ -26,7 +26,7 @@ size_t	ft_strlen(char *s)
 	return (i);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin_gnl(char *s1, char *s2)
 {
 	size_t	i;
 	size_t	j;
@@ -34,7 +34,7 @@ char	*ft_strjoin(char *s1, char *s2)
 
 	i = 0;
 	j = 0;
-	str = malloc((ft_strlen(s1) + ft_strlen(s2) + 1));
+	str = malloc((ft_strlen_gnl(s1) + ft_strlen_gnl(s2) + 1));
 	if (!str)
 		return (0);
 	while (s1 && s1[i])

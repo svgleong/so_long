@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 11:20:32 by svalente          #+#    #+#             */
-/*   Updated: 2023/05/31 12:43:09 by svalente         ###   ########.fr       */
+/*   Updated: 2023/06/11 13:14:17 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,13 @@ int	main(void)
 	data.mlx_ptr = mlx_init();
 	if (data.mlx_ptr == 0)
 		return (0);
-	data.win_ptr = mlx_new_window(data.mlx_ptr, 1920, 1080, "window");
+	data.win_ptr = mlx_new_window(data.mlx_ptr, 920, 680, "slay");
 	if (data.win_ptr == 0)
 	{
 		free(data.win_ptr);
 		return (0);
 	}
-	mlx_loop_hook(data.mlx_ptr, &handle_no_event, &data);
+	//mlx_loop_hook(data.mlx_ptr, &handle_no_event, &data);
 	mlx_key_hook(data.win_ptr, &handle_input, &data);
 	data.collectible = mlx_xpm_file_to_image(data.mlx_ptr,
 			"./wall.xpm", &x, &y);
