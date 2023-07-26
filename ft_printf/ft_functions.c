@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_functions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 12:06:45 by svalente          #+#    #+#             */
-/*   Updated: 2022/11/30 11:43:35 by svalente         ###   ########.fr       */
+/*   Updated: 2023/07/26 10:41:23 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_putstr(char *str)
 	return (i);
 }
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen_printf(const char *s)
 {
 	size_t	i;
 
@@ -52,7 +52,7 @@ int	ft_putnbrbase(char *base, long long nb)
 	int			count;
 
 	count = 0;
-	len = ft_strlen(base);
+	len = ft_strlen_printf(base);
 	if (nb < 0)
 	{
 		ft_putchar('-');
@@ -70,7 +70,7 @@ int	ft_putnbrpointer(char *base, unsigned long nb, int checker)
 	int	len;
 
 	count = 0;
-	len = ft_strlen(base);
+	len = ft_strlen_printf(base);
 	if (!nb)
 		return (ft_putstr("(nil)"));
 	if (checker == 0)

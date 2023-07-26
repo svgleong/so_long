@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 10:57:04 by svalente          #+#    #+#             */
-/*   Updated: 2022/11/30 11:44:35 by svalente         ###   ########.fr       */
+/*   Updated: 2023/07/26 10:40:52 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		ft_putchar(int c);
 int		ft_putstr(char *str);
 int		ft_verify(const char varf, va_list args);
 int		ft_putnbr(long long nb);
-size_t	ft_strlen(const char *s);
+size_t	ft_strlen_printf(const char *s);
 int		ft_putnbrbase(char *base, long long nbr);
 int		ft_putnbrpointer(char *base, unsigned long nb, int checker);
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 14:10:57 by svalente          #+#    #+#             */
-/*   Updated: 2023/06/11 15:06:31 by svalente         ###   ########.fr       */
+/*   Updated: 2023/07/26 15:34:57 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,18 @@
 
 char	**create_matrix(t_list *list, int rows_counter);
 
+/* void	print_list(t_list *lst)
+{
+	t_list *tmp = lst;
+
+	while (tmp)
+	{
+		printf("[%d] ", tmp->content);
+		tmp = tmp->next;
+	}
+	printf("\n");
+} */
+
 char	**get_map(char *path)
 {
 	int		fd;
@@ -25,7 +37,8 @@ char	**get_map(char *path)
 	char	**map;
 
 	rows_counter = 0;
-	map = NULL;
+	lines = NULL;
+	// map = NULL;
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
 	{
@@ -60,7 +73,7 @@ char	**create_matrix(t_list *list, int rows_counter)
 	return(matrix);
 }
 
-int main(int ac, char **av)
+/* int main(int ac, char **av)
 {
 	char **map = get_map(av[1]);
 	int i = 0;
@@ -69,4 +82,4 @@ int main(int ac, char **av)
 		ft_putstr_fd(map[i], 1);
 		i++;
 	}
-}
+} */
