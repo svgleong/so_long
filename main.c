@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 11:20:32 by svalente          #+#    #+#             */
-/*   Updated: 2023/06/11 13:14:17 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/04 10:18:04 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int leave(void *param)
+/* int leave(void *param)
 {
 	t_data	*data;
 
@@ -53,9 +53,9 @@ int handle_keyrelease(int keysym, void *data)
 	(void)data;
     printf("Keyrealese: %d\n", keysym);
     return (0);
-}
+} */
 
-int	main(void)
+/* int	main(void)
 {
 	t_data	data;
 	int		x = 1;
@@ -79,4 +79,27 @@ int	main(void)
 	mlx_loop(data.mlx_ptr);
 	mlx_destroy_display(data.mlx_ptr);
 	free(data.mlx_ptr);
+} */
+
+void	init_struct(t_data *data)
+{
+	data->map = NULL;
+	data->mlx_ptr = NULL;
+	data->win_ptr = NULL;
+	data->collectible = 0;
+	data->exit = 0;
+	data->player = 0;
+}
+
+int	main(int ac, char **av)
+{
+	t_data	data;
+	
+	init_struct(&data);
+	if (ac != 2)
+		ft_error_msg(data.map, "Error: Syntax should be ./so_long selected_map\n");
+	if (ft_strncmp(ft_strrchr(av[1], '.'), ".ber", 4) != 0)
+		ft_error_msg(data.map, "Error: Invalid map\n");
+	data.map = get_map(av[1]);
+	check_map(&data);
 }

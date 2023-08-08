@@ -6,28 +6,13 @@
 /*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 14:10:57 by svalente          #+#    #+#             */
-/*   Updated: 2023/07/26 15:34:57 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/08 22:29:41 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-# include "Libft/libft.h"
-# include "ft_printf/ft_printf.h"
-# include "get_next_line/get_next_line.h"
 
-char	**create_matrix(t_list *list, int rows_counter);
-
-/* void	print_list(t_list *lst)
-{
-	t_list *tmp = lst;
-
-	while (tmp)
-	{
-		printf("[%d] ", tmp->content);
-		tmp = tmp->next;
-	}
-	printf("\n");
-} */
+static char	**create_matrix(t_list *list, int rows_counter);
 
 char	**get_map(char *path)
 {
@@ -35,25 +20,31 @@ char	**get_map(char *path)
 	int		rows_counter;
 	t_list	*lines;
 	char	**map;
+	char	*line;
 
 	rows_counter = 0;
 	lines = NULL;
-	// map = NULL;
+	map = NULL;
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
+		ft_error_msg(map, "Error opening the file\n");
+	line = get_next_line(fd);
+	if (!line)
+		ft_error_msg(map, "Error: the map is empty\n");
+	while (line)
 	{
-		ft_printf("Error opening the file\n");
-		exit(1);
-	}
-	while (ft_lstadd_back(&lines, ft_lstnew(get_next_line(fd))))
+		ft_lstadd_back(&lines, ft_lstnew(line));
 		rows_counter++;
-	map = create_matrix(lines, rows_counter);
-	ft_lstclear(&lines, 0);
+		line = get_next_line(fd);
+	}
+	if (lines->content != NULL)
+		map = create_matrix(lines, rows_counter);
+	lstclear(&lines);
 	close(fd);
 	return (map);
 }
 
-char	**create_matrix(t_list *list, int rows_counter)
+static char	**create_matrix(t_list *list, int rows_counter)
 {
 	t_list	*tmp;
 	char	**matrix;
@@ -73,13 +64,44 @@ char	**create_matrix(t_list *list, int rows_counter)
 	return(matrix);
 }
 
+int	map_size(char **map, char side)
+{
+	int i;
+
+	i = 0;
+	if (side == 'x')
+		i = ft_strlen(map[0]) - 1;
+	else if (side == 'y')
+	{
+		while (map[i])
+			i++;
+	}
+	return (i);
+}
+
 /* int main(int ac, char **av)
 {
 	char **map = get_map(av[1]);
+	(void)ac;
 	int i = 0;
+	printf("%d ", i);
 	while (map[i])
 	{
+		printf("%d ", i);
 		ft_putstr_fd(map[i], 1);
 		i++;
 	}
+	free_matrix(map);
+} */
+
+/* void	print_list(t_list *lst)
+{
+	t_list *tmp = lst;
+
+	while (tmp)
+	{
+		printf("[%d] ", tmp->content);
+		tmp = tmp->next;
+	}
+	printf("\n");
 } */

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 15:04:48 by svalente          #+#    #+#             */
-/*   Updated: 2022/11/16 16:17:29 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/03 15:27:17 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

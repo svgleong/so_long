@@ -1,43 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/16 14:49:27 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/03 15:27:40 by svalente         ###   ########.fr       */
+/*   Created: 2023/07/26 16:25:27 by svalente          #+#    #+#             */
+/*   Updated: 2023/07/26 16:39:51 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "so_long.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+void	free_matrix(char **map)
 {
-	t_list	*temp;
+	int	i;
 
-	if (!*lst || !del)
-		return ;
-	while (*lst)
-	{
-		temp = *lst;
-		*lst = (*lst)->next;
-		ft_lstdelone(temp, del);
-	}
-	*lst = 0;
+	i = 0;
+	while (map[i])
+		free(map[i++]);
+	free(map);
 }
 
-void	lstclear(t_list **lst)
+void    ft_error_msg(char **map, char *msg)
 {
-	t_list	*temp;
-
-	if (!*lst || !lst)
-		return ;
-	while (*lst)
-	{
-		temp = (*lst)->next;
-		free(*lst);
-		*lst = temp;
-	}
-	lst = NULL;
+    ft_putstr_fd(msg, 2);
+    if (map)
+        free_matrix(map);
+    exit(EXIT_FAILURE);
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+         #
+#    By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/08 10:43:02 by svalente          #+#    #+#              #
-#    Updated: 2023/06/11 15:04:07 by svalente         ###   ########.fr        #
+#    Updated: 2023/08/03 15:49:56 by svalente         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,13 @@ GNL_PATH = ./get_next_line
 LIBFT = ./Libft/libft.a
 FT_PRINTF = ./ft_printf/libftprintf.a
 
-SRC	= main.c\
+SRC	= 	get_next_line/get_next_line.c\
+		get_next_line/get_next_line_utils.c\
+		main.c\
+		get_map.c\
+		utils.c\
+		check_map.c\
+		positions.c\
 
 $(VERBOSE).SILENT:
 
@@ -37,7 +43,7 @@ OBJ	= $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-		make -C $(LIBFT_PATH)
+		make bonus -C $(LIBFT_PATH)
 		make -C $(FT_PRINTF_PATH)
 		make -s -C minilibx-linux
 		$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(FT_PRINTF) $(LMLX_FLAGS) $(MLX_INCLUDE) -o $(NAME)
