@@ -6,7 +6,7 @@
 #    By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/08 10:43:02 by svalente          #+#    #+#              #
-#    Updated: 2023/08/03 15:49:56 by svalente         ###   ########.fr        #
+#    Updated: 2023/08/10 21:59:51 by svalente         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,9 @@ SRC	= 	get_next_line/get_next_line.c\
 		utils.c\
 		check_map.c\
 		positions.c\
+		make_window.c\
+		end_game.c\
+		moves.c\
 
 $(VERBOSE).SILENT:
 

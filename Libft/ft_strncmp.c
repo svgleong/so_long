@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 16:03:14 by svalente          #+#    #+#             */
-/*   Updated: 2022/11/09 11:54:03 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/10 16:50:30 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
