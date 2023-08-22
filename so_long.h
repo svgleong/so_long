@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 12:44:54 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/11 16:08:41 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/22 16:13:04 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 # define WALL "./images/wall.xpm"
 # define EXIT "./images/exit.xpm"
 # define PLAYER "./images/player.xpm"
+# define PLAYER_LEFT "./images/player_left.xpm"
+# define PLAYER_RIGHT "./images/player_right.xpm"
 # define GROUND "./images/ground.xpm"
 # define COLLECTIBLE "./images/collectible.xpm"
 
@@ -43,6 +45,7 @@ typedef struct s_data
 	void	*wall;
 	int		*x;
 	int		*y;
+	int		num;
 }	t_data;
 
 typedef struct s_error
@@ -63,10 +66,12 @@ int		create_window(t_data *data);
 int		handle_keypress(int keysym, t_data *data);
 int		handle_input(int key, t_data *data);
 void	window_full_load(t_data *data);
+int		window_update(t_data *data);
 int 	leave(t_data *data);
 void	move_right(char **map);
 void	move_left(char **map);
 void	move_up(char **map);
 void	move_down(char **map);
+void	change_player_img(int key, t_data *data);
 
 #endif

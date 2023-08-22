@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   make_window.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 22:38:10 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/22 11:31:53 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/22 17:46:12 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,25 @@ void	window_xpm_to_img(t_data *data)
 		&(data->win_size_x), &(data->win_size_x));
 	data->collectible = mlx_xpm_file_to_image(data->mlx_ptr, COLLECTIBLE, 
 		&(data->win_size_x), &(data->win_size_x));
-	data->player = mlx_xpm_file_to_image(data->mlx_ptr, PLAYER, 
-		&(data->win_size_x), &(data->win_size_x));
 	data->exit = mlx_xpm_file_to_image(data->mlx_ptr, EXIT, 
 		&(data->win_size_x), &(data->win_size_x));
+	data->player = mlx_xpm_file_to_image(data->mlx_ptr, PLAYER, 
+		&(data->win_size_x), &(data->win_size_x));
+	/* if (data->num == 1) 
+	{
+		data->player = mlx_xpm_file_to_image(data->mlx_ptr, PLAYER_LEFT, 
+			&(data->win_size_x), &(data->win_size_x));
+	}
+	if (data->num == 2)
+	{
+		data->player = mlx_xpm_file_to_image(data->mlx_ptr, PLAYER_RIGHT, 
+			&(data->win_size_x), &(data->win_size_x));
+	}
+	else */
 }
 
 void	img_to_window(t_data *data, int i, int j)
 {
-	window_xpm_to_img(data);
 	if (data->map[i][j] == '1')
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->wall, 
 			j * 64, i *64);
@@ -66,7 +76,8 @@ void	window_full_load(t_data *data)
 
 int	window_update(t_data *data)
 {
-	mlx_clear_window(data->mlx_ptr, data->win_ptr);
+	printf("window reload\n");
+	//mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	window_full_load(data);
 	return (0);
 }
@@ -85,9 +96,10 @@ int	create_window(t_data *data)
         free(data->win_ptr);
         return (0);
     }
+	window_xpm_to_img(data);
 	window_full_load(data);
+	//mlx_key_hook(data->win_ptr, &window_update, data);
 	mlx_key_hook(data->win_ptr, &handle_input, data);
-	mlx_loop_hook(data->win_ptr, &window_update, data);
 	mlx_hook(data->win_ptr, 17, 0, leave, data);
 	mlx_loop(data->mlx_ptr);
     return (0);

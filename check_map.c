@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 10:26:16 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/09 10:55:31 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/22 17:53:15 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	check_shape(char **map)
     i = 1;
     while(map[i])
         if (ft_strlen(map[i++]) != len)
-            ft_error_msg(map, "Error: The map is not rectangular\n");
+            ft_error_msg(map, "Error: Wrong map shape\n");
 }
 
 static void check_walls(char **map)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 11:20:32 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/10 21:58:36 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/22 16:14:37 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	init_struct(t_data *data)
 	data->collectible = 0;
 	data->exit = 0;
 	data->player = 0;
+	data->num = 0;
 }
 
 int	main(int ac, char **av)

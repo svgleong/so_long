@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   end_game.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 21:58:08 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/11 16:15:42 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/22 16:56:46 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,22 @@ int	handle_input(int key, t_data *data)
 	if (key == XK_Escape)
 		leave(data);
 	else if (key == XK_Left|| key == XK_a)
+	{
+		data->num = 1;
 		move_left(data->map);
+		change_player_img(XK_Left, data);
+	}
     else if (key == XK_Right || key == XK_d)
+	{
+		data->num = 2;
 		move_right(data->map);
+		change_player_img(XK_Right, data);	
+	}
 	else if (key == XK_Up || key == XK_w)
 		move_up(data->map);
 	else if (key == XK_Down || key == XK_s)
 		move_down(data->map);
-	window_full_load(data);
+	window_update(data);
 	return (0);
 }
 

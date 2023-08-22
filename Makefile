@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+         #
+#    By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/08 10:43:02 by svalente          #+#    #+#              #
-#    Updated: 2023/08/10 21:59:51 by svalente         ###   ########.fr        #
+#    Updated: 2023/08/22 16:40:42 by svalente         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -Imlx -g -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra -Imlx -g #-fsanitize=address
 MILIB  = -I /usr/X11/include -g -L /usr/X11/lib -l minilibx-linux -framework OpenGL -framework AppKit
 RM = rm -f
 
@@ -34,10 +34,10 @@ SRC	= 	get_next_line/get_next_line.c\
 		get_map.c\
 		utils.c\
 		check_map.c\
-		positions.c\
 		make_window.c\
 		end_game.c\
 		moves.c\
+		make_window_utils.c\
 
 $(VERBOSE).SILENT:
 
