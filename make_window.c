@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 22:38:10 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/19 19:35:05 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/22 11:31:53 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,11 @@ void	window_full_load(t_data *data)
 	}
 }
 
-void	window_update(t_data *data)
+int	window_update(t_data *data)
 {
 	mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	window_full_load(data);
+	return (0);
 }
 
 int	create_window(t_data *data)
