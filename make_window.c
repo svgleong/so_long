@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 22:38:10 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/11 15:27:59 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/19 19:35:05 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ void	window_full_load(t_data *data)
 
 void	window_update(t_data *data)
 {
+	mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	window_full_load(data);
-	//mlx_clear_window(data->mlx_ptr, data->win_ptr);
 }
 
 int	create_window(t_data *data)
@@ -86,7 +86,7 @@ int	create_window(t_data *data)
     }
 	window_full_load(data);
 	mlx_key_hook(data->win_ptr, &handle_input, data);
-	//mlx_loop_hook(data->win_ptr, &window_update, data);
+	mlx_loop_hook(data->win_ptr, &window_update, data);
 	mlx_hook(data->win_ptr, 17, 0, leave, data);
 	mlx_loop(data->mlx_ptr);
     return (0);

@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 12:44:54 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/11 15:34:58 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/11 16:08:41 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,7 @@ void	window_full_load(t_data *data);
 int 	leave(t_data *data);
 void	move_right(char **map);
 void	move_left(char **map);
+void	move_up(char **map);
+void	move_down(char **map);
 
 #endif
