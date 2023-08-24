@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 21:58:08 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/22 16:56:46 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/24 17:34:03 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,30 +40,52 @@ int	handle_input(int key, t_data *data)
 	else if (key == XK_Left|| key == XK_a)
 	{
 		data->num = 1;
-		move_left(data->map);
+		move_left(data->map, data);
 		change_player_img(XK_Left, data);
 	}
     else if (key == XK_Right || key == XK_d)
 	{
 		data->num = 2;
-		move_right(data->map);
+		move_right(data->map, data);
 		change_player_img(XK_Right, data);	
 	}
 	else if (key == XK_Up || key == XK_w)
-		move_up(data->map);
+	{
+		move_up(data->map, data);
+	}
 	else if (key == XK_Down || key == XK_s)
-		move_down(data->map);
+		move_down(data->map, data);
 	window_update(data);
 	return (0);
 }
 
-int	handle_keypress(int keysym, t_data *data)
+int	check_collectibles(t_data *data)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (data->map[i])
+	{
+		j = 0;
+		while (data->map[i][j])
+		{
+			if (data->map[i][j] == 'C')
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+/* int	handle_keypress(int keysym, t_data *data)
 {
 	if (keysym == XK_Escape)
 		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
     //printf("Keypress: %d\n", keysym);
 	return (0);
-}
+} */
 
 /* int handle_keyrelease(int keysym, void *data)
 {
