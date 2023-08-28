@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 12:44:54 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/24 17:37:23 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/28 23:06:08 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct s_counter
 char	**get_map(char *path);
 void	free_matrix(char **paths);
 void    ft_error_msg(char **map, char *msg);
+void    ft_final_msg(t_data *data, char *msg);
 void	get_position(t_data *data);
 void	check_path(t_data *data);
 void 	check_map(t_data *data);

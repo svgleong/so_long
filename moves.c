@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 21:56:48 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/24 17:43:33 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/28 23:05:23 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	move_right(char **map, t_data *data)
 			}
 			if (map[i][j] == 'P' && map[i][j + 1] == 'E' 
 				&& !check_collectibles(data))
-				ft_error_msg(data->map, "You Win\n");
+				ft_final_msg(data, "You Win\n");
 			j++;
 		}
 		i++;
@@ -126,4 +126,34 @@ void	move_down(char **map, t_data *data)
 		}
 		i++;
 	}
+}
+
+int	handle_input(int key, t_data *data)
+{
+	/* t_data *data;
+
+	data = (t_data *)param; */
+	//printf("Key -> %d\n", key);
+	if (key == XK_Escape)
+		leave(data);
+	else if (key == XK_Left|| key == XK_a)
+	{
+		data->num = 1;
+		move_left(data->map, data);
+		change_player_img(XK_Left, data);
+	}
+    else if (key == XK_Right || key == XK_d)
+	{
+		data->num = 2;
+		move_right(data->map, data);
+		change_player_img(XK_Right, data);	
+	}
+	else if (key == XK_Up || key == XK_w)
+	{
+		move_up(data->map, data);
+	}
+	else if (key == XK_Down || key == XK_s)
+		move_down(data->map, data);
+	window_update(data);
+	return (0);
 }

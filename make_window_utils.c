@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   make_window_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 11:43:05 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/24 12:57:07 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/28 22:19:06 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

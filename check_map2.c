@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:29:49 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/24 17:31:13 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/28 22:44:54 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ char	**copy_map(t_data *data)
 
 	i = 0;
 	copy = malloc(sizeof(char *) * data->win_size_y);
+	if (!copy)
+		return (0);
 	while(data->map[i])
 	{
 		copy[i] = ft_strdup(data->map[i]);

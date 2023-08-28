@@ -3,20 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   end_game.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 21:58:08 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/24 17:34:03 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/28 22:48:48 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	destroy_sprites(t_data *data)
+{
+	mlx_destroy_image(data->mlx_ptr, data->collectible);
+	mlx_destroy_image(data->mlx_ptr, data->ground);
+	mlx_destroy_image(data->mlx_ptr, data->wall);
+	mlx_destroy_image(data->mlx_ptr, data->exit);
+	mlx_destroy_image(data->mlx_ptr, data->player);
+	//mlx_destroy_image(data->mlx_ptr, data->enemy);
+}
 
 int leave(t_data *data)
 {
 	/* t_data	*data;
 
 	data = (t_data *)param; */
+	destroy_sprites(data);
 	mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	mlx_destroy_display(data->mlx_ptr);
@@ -26,36 +37,6 @@ int leave(t_data *data)
 int	handle_no_event(void *data)
 {
 	(void)data;
-	return (0);
-}
-
-int	handle_input(int key, t_data *data)
-{
-	/* t_data *data;
-
-	data = (t_data *)param; */
-	//printf("Key -> %d\n", key);
-	if (key == XK_Escape)
-		leave(data);
-	else if (key == XK_Left|| key == XK_a)
-	{
-		data->num = 1;
-		move_left(data->map, data);
-		change_player_img(XK_Left, data);
-	}
-    else if (key == XK_Right || key == XK_d)
-	{
-		data->num = 2;
-		move_right(data->map, data);
-		change_player_img(XK_Right, data);	
-	}
-	else if (key == XK_Up || key == XK_w)
-	{
-		move_up(data->map, data);
-	}
-	else if (key == XK_Down || key == XK_s)
-		move_down(data->map, data);
-	window_update(data);
 	return (0);
 }
 
@@ -78,6 +59,7 @@ int	check_collectibles(t_data *data)
 	}
 	return (0);
 }
+
 
 /* int	handle_keypress(int keysym, t_data *data)
 {
