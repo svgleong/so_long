@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:29:49 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/29 14:28:18 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/29 17:26:54 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,22 +56,22 @@ char	**flood_fill(int x, int y, t_data *data)
 	char	**map;
 
 	map = copy_map(data);
-	if (map[y][x + 1] != 'z' && map[y][x + 1] != '1' && map[y][x + 1] != 'E')
+	if (map[y][x + 1] != 'z' && map[y][x + 1] != '1' && map[y][x + 1] != 'E' && map[y][x + 1] != 'K')
 	{
 		map[y][x + 1] = 'z';
 		flood_fill(x + 1, y, data);
 	}
-	if (map[y][x - 1] != 'z' && map[y][x - 1] != '1' && map[y][x - 1] != 'E')
+	if (map[y][x - 1] != 'z' && map[y][x - 1] != '1' && map[y][x - 1] != 'E' && map[y][x - 1] != 'K')
 	{
 		map[y][x - 1] = 'z';
 		flood_fill(x - 1, y, data);
 	}
-	if (map[y + 1][x] != 'z' && map[y + 1][x] != '1' && map[y + 1][x] != 'E')
+	if (map[y + 1][x] != 'z' && map[y + 1][x] != '1' && map[y + 1][x] != 'E' && map[y + 1][x] != 'K')
 	{
 		map[y + 1][x] = 'z';
 		flood_fill(x, y + 1, data);
 	}
-	if (map[y - 1][x] != 'z' && map[y - 1][x] != '1' && map[y - 1][x] != 'E')
+	if (map[y - 1][x] != 'z' && map[y - 1][x] != '1' && map[y - 1][x] != 'E' && map[y - 1][x] != 'K')
 	{
 		map[y - 1][x] = 'z';
 		flood_fill(x, y - 1, data);
@@ -97,13 +97,15 @@ void	check_path(t_data *data)
 				free_matrix(map);
 				ft_error_msg(data->map, "Error: Invalid map\n");
 			}
-			else if(map[i][j] == 'E')
+			else if (map[i][j] == 'E')
+			{
 				if (map[i][j - 1] != 'z' && map[i][j + 1] != 'z' 
 					&& map[i + 1][j] != 'z' && map[i - 1][j] != 'z')
-					{
-						free_matrix(map);	
-						ft_error_msg(data->map, "Error: Invalid map\n");
-					}
+				{
+					free_matrix(map);
+					ft_error_msg(data->map, "Error: Invalid map\n");
+				}
+			}
 			j++;
 		}
 		i++;

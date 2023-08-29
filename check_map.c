@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 10:26:16 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/29 15:17:21 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/29 15:19:07 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ static void	check_characters(char **map)
 			else if (map[j][i] == 'P')
 				chars.player++;
 			else if (!(map[j][i] == '1' || map[j][i] == '0'
-						|| map[j][i] == '\n'))
+						|| map[j][i] == '\n' || map[j][i] == 'K'))
 				ft_error_msg(map, "Error: Invalid character in map\n");
 			i++;
 		}
