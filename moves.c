@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 21:56:48 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/28 23:05:23 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/29 14:43:53 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	move_right(char **map, t_data *data)
 			}
 			if (map[i][j] == 'P' && map[i][j + 1] == 'E' 
 				&& !check_collectibles(data))
-				ft_final_msg(data, "You Win\n");
+				win_game(data);
 			j++;
 		}
 		i++;
@@ -63,7 +63,7 @@ void	move_left(char **map, t_data *data)
 			}
 			if (map[i][j] == 'P' && map[i][j - 1] == 'E' 
 				&& !check_collectibles(data))
-				ft_error_msg(data->map, "You Win\n");
+				win_game(data);
 			j++;
 		}
 		i++;
@@ -92,7 +92,7 @@ void	move_up(char **map, t_data *data)
 			}
 			if (map[i][j] == 'P' && map[i - 1][j] == 'E' 
 				&& !check_collectibles(data))
-				ft_error_msg(data->map, "You Win\n");
+				win_game(data);
 			j++;
 		}
 		i++;
@@ -121,7 +121,7 @@ void	move_down(char **map, t_data *data)
 			}
 			if (map[i][j] == 'P' && map[i + 1][j] == 'E' 
 				&& !check_collectibles(data))
-				ft_error_msg(data->map, "You Win\n");
+				win_game(data);
 			j++;
 		}
 		i++;
@@ -136,17 +136,17 @@ int	handle_input(int key, t_data *data)
 	//printf("Key -> %d\n", key);
 	if (key == XK_Escape)
 		leave(data);
-	else if (key == XK_Left|| key == XK_a)
+	else if (key == XK_Left || key == XK_a)
 	{
 		data->num = 1;
 		move_left(data->map, data);
 		change_player_img(XK_Left, data);
 	}
-    else if (key == XK_Right || key == XK_d)
+	else if (key == XK_Right || key == XK_d)
 	{
 		data->num = 2;
 		move_right(data->map, data);
-		change_player_img(XK_Right, data);	
+		change_player_img(XK_Right, data);
 	}
 	else if (key == XK_Up || key == XK_w)
 	{

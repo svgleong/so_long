@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 11:20:32 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/24 12:42:31 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/29 14:29:26 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	main(int ac, char **av)
 
 	init_struct(&data);
 	if (ac != 2)
-		ft_error_msg(data.map, "Error: Syntax should be ./so_long selected_map.ber\n");
+		ft_error_msg(data.map, "Error: Wrong number of arguments\n");
 	if (ft_strncmp(ft_strrchr(av[1], '.'), ".ber", 4) != 0)
 		ft_error_msg(data.map, "Error: Invalid map\n");
 	data.map = get_map(av[1]);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:29:49 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/28 22:44:54 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/29 14:28:18 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	get_position(t_data *data)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (data->map[i])
@@ -37,13 +37,13 @@ void	get_position(t_data *data)
 char	**copy_map(t_data *data)
 {
 	char	**copy;
-	int	i;
+	int		i;
 
 	i = 0;
 	copy = malloc(sizeof(char *) * data->win_size_y);
 	if (!copy)
 		return (0);
-	while(data->map[i])
+	while (data->map[i])
 	{
 		copy[i] = ft_strdup(data->map[i]);
 		i++;
@@ -53,7 +53,7 @@ char	**copy_map(t_data *data)
 
 char	**flood_fill(int x, int y, t_data *data)
 {
-	char **map;
+	char	**map;
 
 	map = copy_map(data);
 	if (map[y][x + 1] != 'z' && map[y][x + 1] != '1' && map[y][x + 1] != 'E')

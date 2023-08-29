@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 10:26:16 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/24 17:12:53 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/29 15:17:21 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ static void	check_shape(char **map)
 				return ;
 				i++;
 			}
-				
 		}
 		else if (ft_strlen(map[i]) != len)
 			ft_error_msg(map, "Error: Wrong map shape\n");
@@ -47,7 +46,7 @@ static void	check_walls(char **map)
 
 	i = 0;
 	j = 0;
-	while (map[j][i] && map[j][i] !='\n')	
+	while (map[j][i] && map[j][i] != '\n')
 		if (map[j][i++] != '1')
 			ft_error_msg(map, "Error: The map is not surrounded by walls\n");
 	j++;
@@ -60,17 +59,17 @@ static void	check_walls(char **map)
 	}
 	j--;
 	i = 0;
-	while(map[j][i] && map[j][i] !='\n')
+	while (map[j][i] && map[j][i] != '\n')
 		if (map[j][i++] != '1')
 			ft_error_msg(map, "Error: The map is not surrounded by walls\n");
 }
 
 static void	check_characters(char **map)
 {
-	int i;
-	int j;
+	int			i;
+	int			j;
 	t_counter	chars;
-	
+
 	j = 0;
 	chars.collectible = 0;
 	chars.exit = 0;
@@ -86,7 +85,8 @@ static void	check_characters(char **map)
 				chars.exit++;
 			else if (map[j][i] == 'P')
 				chars.player++;
-			else if (!(map[j][i] == '1' || map[j][i] == '0' || map[j][i] == '\n'))
+			else if (!(map[j][i] == '1' || map[j][i] == '0'
+						|| map[j][i] == '\n'))
 				ft_error_msg(map, "Error: Invalid character in map\n");
 			i++;
 		}
@@ -101,14 +101,14 @@ static void	check_characters(char **map)
 	if (chars.player > 1)
 		ft_error_msg(map, "Error: The map should contain only one player\n");
 	if (chars.collectible == 0)
-		ft_error_msg(map, "Error: The map should contain at least one collectible\n");
+		ft_error_msg(map, "Error: The map should contain one collectible\n");
 }
 
-void check_map(t_data *data)
+void	check_map(t_data *data)
 {
-	if(data->map == 0)
+	if (data->map == 0)
 		ft_error_msg(data->map, "Error: The map is empty\n");
-    check_shape(data->map);
+	check_shape(data->map);
 	check_walls(data->map);
 	check_characters(data->map);
 	//get_position(data);

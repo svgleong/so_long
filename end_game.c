@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   end_game.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 21:58:08 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/28 22:48:48 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/29 14:28:44 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,12 @@ int leave(t_data *data)
 	/* t_data	*data;
 
 	data = (t_data *)param; */
-	destroy_sprites(data);
 	mlx_clear_window(data->mlx_ptr, data->win_ptr);
+	destroy_sprites(data);
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	mlx_destroy_display(data->mlx_ptr);
+	free(data->mlx_ptr);
+	free_matrix(data->map);
 	exit(0);
 }
 
@@ -42,8 +44,8 @@ int	handle_no_event(void *data)
 
 int	check_collectibles(t_data *data)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (data->map[i])
@@ -59,7 +61,6 @@ int	check_collectibles(t_data *data)
 	}
 	return (0);
 }
-
 
 /* int	handle_keypress(int keysym, t_data *data)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 14:10:57 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/08 22:29:41 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/29 14:28:59 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,12 @@ static char	**create_matrix(t_list *list, int rows_counter)
 		tmp = tmp->next;
 	}
 	matrix[i] = 0;
-	return(matrix);
+	return (matrix);
 }
 
 int	map_size(char **map, char side)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (side == 'x')
