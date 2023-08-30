@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 12:44:54 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/30 13:41:26 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/30 18:28:07 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,16 @@ typedef struct s_data
 	int		n_moves;
 	int		x;
 	int		y;
+	int		player_counter;
+	int		collectible_counter;
+	int		exit_counter;
 }	t_data;
 
 typedef struct s_counter
 {
-	int	player;
-	int	collectible;
-	int	exit;
-	int	walls;
-	int	ground;
+	int	player_counter;
+	int	collectible_counter;
+	int	exit_counter;
 }				t_counter;
 
 char	**get_map(char *path);

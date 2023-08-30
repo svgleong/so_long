@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 15:11:56 by svalente          #+#    #+#             */
-/*   Updated: 2022/11/16 16:09:35 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/30 17:02:14 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strrchr(const char *s, int c)
 	int	len;
 
 	len = ft_strlen(s);
+	if (!s || !s[0])
+		return NULL;
 	if ((unsigned char)c == '\0')
 		return ((char *)s + len);
 	while (len >= 0)

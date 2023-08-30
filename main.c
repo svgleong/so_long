@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 11:20:32 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/29 14:29:26 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/30 18:28:56 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,14 @@ void	init_struct(t_data *data)
 	data->player = 0;
 	data->num = 0;
 	data->n_moves = 0;
+	data->player_counter = 0;
+	data->exit_counter = 0;
+	data->collectible_counter = 0;
 }
 
 int	main(int ac, char **av)
 {
-	t_data	data;
+	t_data		data;
 
 	init_struct(&data);
 	if (ac != 2)

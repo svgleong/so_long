@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:29:49 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/30 15:35:39 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/30 18:33:13 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,17 +100,10 @@ void	check_path(t_data *data)
 	int		i;
 	int		j;
 	char	**map;
-	//int		a = 0;
 
 	i = 0;
 	map = copy_map(data);
 	flood_fill(data->x, data->y, map);
-	while (map[i])
-	{
-		printf("%d, %s", i, map[i]);
-		i++;
-	}
-	i = 0;
 	while (map[i])
 	{
 		j = 0;
@@ -132,9 +125,7 @@ void	check_path(t_data *data)
 			}
 			j++;
 		}
-		//free(map[i]);
 		i++;
 	}
-	/* free(map);
-	map = NULL; */
+	free_matrix(map);
 }

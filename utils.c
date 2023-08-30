@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 16:25:27 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/30 15:00:18 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/30 18:36:13 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ void	free_matrix(char **map)
 	map = NULL;
 } */
 
-void	free_matrix2(char ***map)
+/* void	free_matrix2(char ***map)
 {
-	char **ptr;
-	int	i;
+	char	**ptr;
+	int		i;
 
 	i = 0;
 	if (!*map)
@@ -51,7 +51,7 @@ void	free_matrix2(char ***map)
 		free(ptr[i++]);
 	free(ptr);
 	*map = NULL;
-}
+} */
 
 void	ft_error_msg(char **map, char *msg)
 {
