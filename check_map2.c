@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:29:49 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/29 17:26:54 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/30 15:35:39 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ char	**copy_map(t_data *data)
 	int		i;
 
 	i = 0;
-	copy = malloc(sizeof(char *) * data->win_size_y);
+	printf("size: %d\n", data->win_size_y);
+	copy = ft_calloc(data->win_size_y + 1, sizeof(char *));
 	if (!copy)
 		return (0);
 	while (data->map[i])
@@ -51,42 +52,65 @@ char	**copy_map(t_data *data)
 	return (copy);
 }
 
-char	**flood_fill(int x, int y, t_data *data)
+void	flood_fill(int x, int y, char **map)
 {
-	char	**map;
-
-	map = copy_map(data);
 	if (map[y][x + 1] != 'z' && map[y][x + 1] != '1' && map[y][x + 1] != 'E' && map[y][x + 1] != 'K')
 	{
 		map[y][x + 1] = 'z';
-		flood_fill(x + 1, y, data);
+		flood_fill(x + 1, y, map);
 	}
 	if (map[y][x - 1] != 'z' && map[y][x - 1] != '1' && map[y][x - 1] != 'E' && map[y][x - 1] != 'K')
 	{
 		map[y][x - 1] = 'z';
-		flood_fill(x - 1, y, data);
+		flood_fill(x - 1, y, map);
 	}
 	if (map[y + 1][x] != 'z' && map[y + 1][x] != '1' && map[y + 1][x] != 'E' && map[y + 1][x] != 'K')
 	{
 		map[y + 1][x] = 'z';
-		flood_fill(x, y + 1, data);
+		flood_fill(x, y + 1, map);
 	}
 	if (map[y - 1][x] != 'z' && map[y - 1][x] != '1' && map[y - 1][x] != 'E' && map[y - 1][x] != 'K')
 	{
 		map[y - 1][x] = 'z';
-		flood_fill(x, y - 1, data);
+		flood_fill(x, y - 1, map);
 	}
-	return (map);
 }
+
+/* char **flood_fill(int x, int y, t_data *data)
+{
+	char	**map;
+
+	map = copy_map(data);
+	if (x < 0 || x >= data->win_size_x || y < 0 || y >= data->win_size_y 
+		|| map[y][x] == 'z' || map[y][x] == '1' || map[y][x] == 'E')
+	{
+		return map;
+	}
+	map[y][x] = 'z';
+	map = flood_fill(x + 1, y, data);
+	map = flood_fill(x - 1, y, data);
+	map = flood_fill(x, y + 1, data);
+	map = flood_fill(x, y - 1, data);
+
+    return (map);
+} */
 
 void	check_path(t_data *data)
 {
 	int		i;
 	int		j;
 	char	**map;
+	//int		a = 0;
 
 	i = 0;
-	map = flood_fill(data->x, data->y, data);
+	map = copy_map(data);
+	flood_fill(data->x, data->y, map);
+	while (map[i])
+	{
+		printf("%d, %s", i, map[i]);
+		i++;
+	}
+	i = 0;
 	while (map[i])
 	{
 		j = 0;
@@ -108,6 +132,9 @@ void	check_path(t_data *data)
 			}
 			j++;
 		}
+		//free(map[i]);
 		i++;
 	}
+	/* free(map);
+	map = NULL; */
 }

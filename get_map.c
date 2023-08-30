@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 14:10:57 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/29 14:28:59 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/30 15:24:58 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static char	**create_matrix(t_list *list, int rows_counter)
 
 	i = 0;
 	tmp = list;
-	matrix = malloc(sizeof(char *) * (rows_counter + 1));
+	matrix = ft_calloc((rows_counter + 1), sizeof(char *));
 	if (!matrix)
 		return (0);
 	while (tmp)

@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 12:44:54 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/29 14:35:49 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/30 13:41:26 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ typedef struct s_counter
 
 char	**get_map(char *path);
 void	free_matrix(char **paths);
+void	free_matrix2(char ***map);
 void	ft_error_msg(char **map, char *msg);
 void	get_position(t_data *data);
 void	check_path(t_data *data);

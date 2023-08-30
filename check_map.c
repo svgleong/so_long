@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 10:26:16 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/29 15:19:07 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/30 12:02:40 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,8 @@ void	check_map(t_data *data)
 	check_shape(data->map);
 	check_walls(data->map);
 	check_characters(data->map);
-	//get_position(data);
-	//check_path(data);
+	data->win_size_y = map_size(data->map, 'y');
+	data->win_size_x = map_size(data->map, 'x');
+	get_position(data);
+	check_path(data);
 }

@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 16:25:27 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/29 14:40:42 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/30 15:00:18 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,40 @@ void	free_matrix(char **map)
 	int	i;
 
 	i = 0;
-	while (map[i])
+	if (!map)
+		return ;
+	while (map && map[i])
 		free(map[i++]);
 	free(map);
+	map = NULL;
+}
+
+/* void	free_matrix1(char **map)
+{
+	int	i;
+	char **holder;
+
+	holder = map;
+	i = 0;
+	while (holder && holder[i])
+		free(holder[i++]);
+	free(holder);
+	map = NULL;
+} */
+
+void	free_matrix2(char ***map)
+{
+	char **ptr;
+	int	i;
+
+	i = 0;
+	if (!*map)
+		return ;
+	ptr = *map;
+	while (ptr && ptr[i])
+		free(ptr[i++]);
+	free(ptr);
+	*map = NULL;
 }
 
 void	ft_error_msg(char **map, char *msg)

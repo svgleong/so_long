@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 22:38:10 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/29 14:26:03 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/30 12:01:34 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,15 +65,15 @@ void	window_full_load(t_data *data)
 
 int	window_update(t_data *data)
 {
-	mlx_clear_window(data->mlx_ptr, data->win_ptr);
+	//mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	window_full_load(data);
 	return (0);
 }
 
 int	create_window(t_data *data)
 {
-	data->win_size_y = map_size(data->map, 'y');
-	data->win_size_x = map_size(data->map, 'x');
+	/* data->win_size_y = map_size(data->map, 'y');
+	data->win_size_x = map_size(data->map, 'x'); */
 	data->mlx_ptr = mlx_init();
 	if (data->mlx_ptr == 0)
 		return (0);

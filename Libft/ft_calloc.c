@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 17:54:42 by svalente          #+#    #+#             */
-/*   Updated: 2022/11/02 18:18:03 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/30 15:33:43 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
