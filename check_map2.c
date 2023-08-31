@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:29:49 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/31 21:52:20 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/31 22:06:04 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,22 +84,22 @@ char	**copy_map(t_data *data)
 	}
 } */
 
-char	**flood_fill(int x, int y, char **map, t_data *data)
+void	flood_fill(int x, int y, char **map, t_data *data)
 {
 	if (!map)
-		return (NULL);
+		return ;
 	if (x < 0 || x >= data->win_size_x || y < 0 || y >= data->win_size_y
 		|| map[y][x] == 'z' || map[y][x] == '1' || map[y][x] == 'E'
 		|| map[y][x] == 'K')
 	{
-		return (map);
+		return ;
 	}
 	map[y][x] = 'z';
-	map = flood_fill(x + 1, y, map, data);
-	map = flood_fill(x - 1, y, map, data);
-	map = flood_fill(x, y + 1, map, data);
-	map = flood_fill(x, y - 1, map, data);
-	return (map);
+	flood_fill(x + 1, y, map, data);
+	flood_fill(x - 1, y, map, data);
+	flood_fill(x, y + 1, map, data);
+	flood_fill(x, y - 1, map, data);
+	return ;
 }
 
 void	check_path_aux(t_data *data, char **map, int i, int j)
