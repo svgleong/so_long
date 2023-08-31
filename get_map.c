@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 14:10:57 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/30 18:34:28 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/31 21:23:21 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,12 @@ char	**get_map(char *path)
 
 	rows_counter = 0;
 	lines = NULL;
-	map = NULL;
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
-		ft_error_msg(map, "Error opening the file\n");
+		ft_error_handler("Error opening the file\n", fd);
 	line = get_next_line(fd);
 	if (!line)
-		ft_error_msg(map, "Error: the map is empty\n");
+		ft_error_handler("Error: the map is empty\n", fd);
 	while (line)
 	{
 		ft_lstadd_back(&lines, ft_lstnew(line));

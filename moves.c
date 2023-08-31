@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 21:56:48 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/31 16:54:57 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/31 21:29:27 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	move_right(char **map, t_data *data)
 				map[i][j] = '0';
 				map[i][j + 1] = 'P';
 				data->n_moves++;
-				ft_printf("moves -> %d\n", data->n_moves);
 				return ;
 			}
 			if (map[i][j] == 'P' && map[i][j + 1] == 'E' 
@@ -69,7 +68,6 @@ void	move_left(char **map, t_data *data)
 				map[i][j] = '0';
 				map[i][j - 1] = 'P';
 				data->n_moves++;
-				ft_printf("moves -> %d\n", data->n_moves);
 				return ;
 			}
 			if (map[i][j] == 'P' && map[i][j - 1] == 'E' 
@@ -99,7 +97,6 @@ void	move_up(char **map, t_data *data)
 				map[i][j] = '0';
 				map[i - 1][j] = 'P';
 				data->n_moves++;
-				ft_printf("moves -> %d\n", data->n_moves);
 				return ;
 			}
 			if (map[i][j] == 'P' && map[i - 1][j] == 'E' 
@@ -129,7 +126,6 @@ void	move_down(char **map, t_data *data)
 				map[i][j] = '0';
 				map[i + 1][j] = 'P';
 				data->n_moves++;
-				ft_printf("moves -> %d\n", data->n_moves);
 				return ;
 			}
 			if (map[i][j] == 'P' && map[i + 1][j] == 'E' 
@@ -143,10 +139,6 @@ void	move_down(char **map, t_data *data)
 
 int	handle_input(int key, t_data *data)
 {
-	/* t_data *data;
-
-	data = (t_data *)param; */
-	//printf("Key -> %d\n", key);
 	if (key == XK_Escape)
 		leave(data);
 	else if (key == XK_Left || key == XK_a)

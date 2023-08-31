@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:29:49 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/31 17:22:19 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/31 21:10:34 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,22 @@ char	**copy_map(t_data *data)
 	i = 0;
 	copy = ft_calloc(data->win_size_y + 1, sizeof(char *));
 	if (!copy)
-		return (0);
+		return (NULL);
 	while (data->map[i])
 	{
 		copy[i] = ft_strdup(data->map[i]);
+		//copy[0] = NULL;
+		if (copy[i] == NULL)
+		{
+			free_matrix(copy);	
+			ft_error_msg(data->map, "Error: Error checking path\n");
+		}
 		i++;
 	}
 	return (copy);
 }
 
-void	flood_fill(int x, int y, char **map)
+/* void	flood_fill(int x, int y, char **map)
 {
 	if (map[y][x + 1] != 'z' && map[y][x + 1] != '1' && map[y][x + 1] != 'E' && map[y][x + 1] != 'K')
 	{
@@ -73,26 +79,26 @@ void	flood_fill(int x, int y, char **map)
 		map[y - 1][x] = 'z';
 		flood_fill(x, y - 1, map);
 	}
-}
+} */
 
-/* char **flood_fill(int x, int y, t_data *data)
+char **flood_fill(int x, int y, char **map, t_data *data)
 {
-	char	**map;
-
-	map = copy_map(data);
+	if (!map)
+		return (NULL);
 	if (x < 0 || x >= data->win_size_x || y < 0 || y >= data->win_size_y 
-		|| map[y][x] == 'z' || map[y][x] == '1' || map[y][x] == 'E')
+		|| map[y][x] == 'z' || map[y][x] == '1' || map[y][x] == 'E' 
+		|| map[y][x] == 'K')
 	{
-		return map;
+		return (map);
 	}
 	map[y][x] = 'z';
-	map = flood_fill(x + 1, y, data);
-	map = flood_fill(x - 1, y, data);
-	map = flood_fill(x, y + 1, data);
-	map = flood_fill(x, y - 1, data);
+	map = flood_fill(x + 1, y, map, data);
+	map = flood_fill(x - 1, y, map, data);
+	map = flood_fill(x, y + 1, map, data);
+	map = flood_fill(x, y - 1, map, data);
 
     return (map);
-} */
+}
 
 void	check_path(t_data *data)
 {
@@ -102,7 +108,10 @@ void	check_path(t_data *data)
 
 	i = 0;
 	map = copy_map(data);
-	flood_fill(data->x, data->y, map);
+	//map = NULL;
+	flood_fill(data->x, data->y, map, data);
+	if (!map)
+		ft_error_msg(data->map, "Error: Error checking path\n");
 	while (map[i])
 	{
 		j = 0;

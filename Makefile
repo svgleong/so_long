@@ -6,7 +6,7 @@
 #    By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/08 10:43:02 by svalente          #+#    #+#              #
-#    Updated: 2023/08/31 17:21:56 by svalente         ###   ########.fr        #
+#    Updated: 2023/08/31 20:55:17 by svalente         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ SRC	= 	get_next_line/get_next_line.c\
 		moves.c\
 		make_window_utils.c\
 
-$(VERBOSE).SILENT:
+#$(VERBOSE).SILENT:
 
 OBJ	= $(SRC:.c=.o)
 

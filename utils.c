@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 16:25:27 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/30 18:36:13 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/31 21:23:57 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,27 @@ void	free_matrix(char **map)
 		free(map[i++]);
 	free(map);
 	map = NULL;
+}
+
+void	ft_error_msg(char **map, char *msg)
+{
+	ft_putstr_fd(msg, 2);
+	if (map)
+		free_matrix(map);
+	exit(EXIT_FAILURE);
+}
+
+void	win_game(t_data *data)
+{
+	ft_putstr_fd("You Win!!\n", 1);
+	leave(data);
+}
+void	ft_error_handler(char *msg, int fd)
+{
+	if (fd != -1)
+		close(fd);
+	ft_putstr_fd(msg, 2);
+	exit(EXIT_FAILURE);
 }
 
 /* void	free_matrix1(char **map)
@@ -52,17 +73,3 @@ void	free_matrix(char **map)
 	free(ptr);
 	*map = NULL;
 } */
-
-void	ft_error_msg(char **map, char *msg)
-{
-	ft_putstr_fd(msg, 2);
-	if (map)
-		free_matrix(map);
-	exit(EXIT_FAILURE);
-}
-
-void	win_game(t_data *data)
-{
-	ft_putstr_fd("You Win!!\n", 1);
-	leave(data);
-}

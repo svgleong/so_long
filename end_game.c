@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   end_game.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 21:58:08 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/29 14:28:44 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/31 21:11:24 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,11 @@ void	destroy_sprites(t_data *data)
 	mlx_destroy_image(data->mlx_ptr, data->wall);
 	mlx_destroy_image(data->mlx_ptr, data->exit);
 	mlx_destroy_image(data->mlx_ptr, data->player);
-	//mlx_destroy_image(data->mlx_ptr, data->enemy);
+	mlx_destroy_image(data->mlx_ptr, data->enemy);
 }
 
 int leave(t_data *data)
 {
-	/* t_data	*data;
-
-	data = (t_data *)param; */
 	mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	destroy_sprites(data);
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
@@ -34,12 +31,6 @@ int leave(t_data *data)
 	free(data->mlx_ptr);
 	free_matrix(data->map);
 	exit(0);
-}
-
-int	handle_no_event(void *data)
-{
-	(void)data;
-	return (0);
 }
 
 int	check_collectibles(t_data *data)
