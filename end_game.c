@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 21:58:08 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/31 21:11:24 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/31 21:39:38 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	destroy_sprites(t_data *data)
 	mlx_destroy_image(data->mlx_ptr, data->enemy);
 }
 
-int leave(t_data *data)
+int	leave(t_data *data)
 {
 	mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	destroy_sprites(data);

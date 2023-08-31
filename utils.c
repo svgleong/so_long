@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 16:25:27 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/31 21:23:57 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/31 21:47:22 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	win_game(t_data *data)
 	ft_putstr_fd("You Win!!\n", 1);
 	leave(data);
 }
+
 void	ft_error_handler(char *msg, int fd)
 {
 	if (fd != -1)

@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:29:49 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/31 21:10:34 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/31 21:45:19 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,9 @@ char	**copy_map(t_data *data)
 	while (data->map[i])
 	{
 		copy[i] = ft_strdup(data->map[i]);
-		//copy[0] = NULL;
 		if (copy[i] == NULL)
 		{
-			free_matrix(copy);	
+			free_matrix(copy);
 			ft_error_msg(data->map, "Error: Error checking path\n");
 		}
 		i++;
@@ -59,34 +58,38 @@ char	**copy_map(t_data *data)
 
 /* void	flood_fill(int x, int y, char **map)
 {
-	if (map[y][x + 1] != 'z' && map[y][x + 1] != '1' && map[y][x + 1] != 'E' && map[y][x + 1] != 'K')
+	if (map[y][x + 1] != 'z' && map[y][x + 1] != '1' && map[y][x + 1] != 'E' 
+		&& map[y][x + 1] != 'K')
 	{
 		map[y][x + 1] = 'z';
 		flood_fill(x + 1, y, map);
 	}
-	if (map[y][x - 1] != 'z' && map[y][x - 1] != '1' && map[y][x - 1] != 'E' && map[y][x - 1] != 'K')
+	if (map[y][x - 1] != 'z' && map[y][x - 1] != '1' && map[y][x - 1] != 'E' 
+		&& map[y][x - 1] != 'K')
 	{
 		map[y][x - 1] = 'z';
 		flood_fill(x - 1, y, map);
 	}
-	if (map[y + 1][x] != 'z' && map[y + 1][x] != '1' && map[y + 1][x] != 'E' && map[y + 1][x] != 'K')
+	if (map[y + 1][x] != 'z' && map[y + 1][x] != '1' && map[y + 1][x] != 'E' 
+		&& map[y + 1][x] != 'K')
 	{
 		map[y + 1][x] = 'z';
 		flood_fill(x, y + 1, map);
 	}
-	if (map[y - 1][x] != 'z' && map[y - 1][x] != '1' && map[y - 1][x] != 'E' && map[y - 1][x] != 'K')
+	if (map[y - 1][x] != 'z' && map[y - 1][x] != '1' && map[y - 1][x] != 'E' 
+		&& map[y - 1][x] != 'K')
 	{
 		map[y - 1][x] = 'z';
 		flood_fill(x, y - 1, map);
 	}
 } */
 
-char **flood_fill(int x, int y, char **map, t_data *data)
+char	**flood_fill(int x, int y, char **map, t_data *data)
 {
 	if (!map)
 		return (NULL);
-	if (x < 0 || x >= data->win_size_x || y < 0 || y >= data->win_size_y 
-		|| map[y][x] == 'z' || map[y][x] == '1' || map[y][x] == 'E' 
+	if (x < 0 || x >= data->win_size_x || y < 0 || y >= data->win_size_y
+		|| map[y][x] == 'z' || map[y][x] == '1' || map[y][x] == 'E'
 		|| map[y][x] == 'K')
 	{
 		return (map);
@@ -96,8 +99,7 @@ char **flood_fill(int x, int y, char **map, t_data *data)
 	map = flood_fill(x - 1, y, map, data);
 	map = flood_fill(x, y + 1, map, data);
 	map = flood_fill(x, y - 1, map, data);
-
-    return (map);
+	return (map);
 }
 
 void	check_path(t_data *data)
@@ -124,7 +126,7 @@ void	check_path(t_data *data)
 			}
 			else if (map[i][j] == 'E')
 			{
-				if (map[i][j - 1] != 'z' && map[i][j + 1] != 'z' 
+				if (map[i][j - 1] != 'z' && map[i][j + 1] != 'z'
 					&& map[i + 1][j] != 'z' && map[i - 1][j] != 'z')
 				{
 					free_matrix(map);
