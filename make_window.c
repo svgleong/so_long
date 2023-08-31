@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   make_window.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 22:38:10 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/30 12:01:34 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/31 20:24:41 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	window_xpm_to_img(t_data *data)
 	data->exit = mlx_xpm_file_to_image(data->mlx_ptr, EXIT, 
 			&(data->win_size_x), &(data->win_size_x));
 	data->player = mlx_xpm_file_to_image(data->mlx_ptr, PLAYER, 
+			&(data->win_size_x), &(data->win_size_x));
+	data->enemy = mlx_xpm_file_to_image(data->mlx_ptr, ENEMY, 
 			&(data->win_size_x), &(data->win_size_x));
 }
 
@@ -42,6 +44,9 @@ void	img_to_window(t_data *data, int i, int j)
 			j * 64, i * 64);
 	else if (data->map[i][j] == 'C')
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->collectible,
+			j * 64, i * 64);
+	else if (data->map[i][j] == 'K')
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->enemy,
 			j * 64, i * 64);
 }
 
@@ -63,10 +68,23 @@ void	window_full_load(t_data *data)
 	}
 }
 
+void	print_n_moves(t_data *data)
+{
+	char	*number;
+	char	*steps;
+
+	number = ft_itoa(data->n_moves);
+	steps = ft_strjoin("Number of moves: ", number);
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 30, 30, 0x000FFFFF, steps);
+	free(number);
+	free(steps);
+}
+
 int	window_update(t_data *data)
 {
-	//mlx_clear_window(data->mlx_ptr, data->win_ptr);
+	mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	window_full_load(data);
+	print_n_moves(data);
 	return (0);
 }
 
@@ -86,6 +104,7 @@ int	create_window(t_data *data)
 	}
 	window_xpm_to_img(data);
 	window_full_load(data);
+	print_n_moves(data);
 	//mlx_key_hook(data->win_ptr, &window_update, data);
 	mlx_key_hook(data->win_ptr, &handle_input, data);
 	mlx_hook(data->win_ptr, 17, 0, leave, data);

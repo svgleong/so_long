@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 12:44:54 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/30 18:28:07 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/31 16:24:27 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define PLAYER_RIGHT "./images/player_right.xpm"
 # define GROUND "./images/ground.xpm"
 # define COLLECTIBLE "./images/collectible.xpm"
+# define ENEMY "./images/enemy.xpm"
 
 typedef struct s_data
 {
@@ -43,6 +44,7 @@ typedef struct s_data
 	void	*player;
 	void	*ground;
 	void	*wall;
+	void	*enemy;
 	int		num;
 	int		n_moves;
 	int		x;
@@ -51,13 +53,6 @@ typedef struct s_data
 	int		collectible_counter;
 	int		exit_counter;
 }	t_data;
-
-typedef struct s_counter
-{
-	int	player_counter;
-	int	collectible_counter;
-	int	exit_counter;
-}				t_counter;
 
 char	**get_map(char *path);
 void	free_matrix(char **paths);

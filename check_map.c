@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 10:26:16 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/30 18:31:44 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/31 17:20:40 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ static void	check_shape(char **map)
 		{
 			if (count == len - 1)
 				return ;
-			if (map[i][count] == '\n')
-				return ;
+			/* if (map[i][count] == '\n')
+				return ; */
 			ft_error_msg(map, "Error: Wrong map shape\n");
 		}
 		if (count != len)

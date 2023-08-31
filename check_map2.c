@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:29:49 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/30 18:33:13 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/31 17:22:19 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ char	**copy_map(t_data *data)
 	int		i;
 
 	i = 0;
-	printf("size: %d\n", data->win_size_y);
 	copy = ft_calloc(data->win_size_y + 1, sizeof(char *));
 	if (!copy)
 		return (0);
