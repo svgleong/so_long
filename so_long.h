@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 12:44:54 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/31 21:20:23 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/31 21:50:05 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ typedef struct s_data
 
 char	**get_map(char *path);
 void	free_matrix(char **paths);
-void	free_matrix2(char ***map);
 void	ft_error_msg(char **map, char *msg);
 void	ft_error_handler(char *msg, int fd);
 void	get_position(t_data *data);

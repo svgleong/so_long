@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:29:49 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/31 21:45:19 by svalente         ###   ########.fr       */
+/*   Updated: 2023/08/31 21:52:20 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,18 +102,8 @@ char	**flood_fill(int x, int y, char **map, t_data *data)
 	return (map);
 }
 
-void	check_path(t_data *data)
+void	check_path_aux(t_data *data, char **map, int i, int j)
 {
-	int		i;
-	int		j;
-	char	**map;
-
-	i = 0;
-	map = copy_map(data);
-	//map = NULL;
-	flood_fill(data->x, data->y, map, data);
-	if (!map)
-		ft_error_msg(data->map, "Error: Error checking path\n");
 	while (map[i])
 	{
 		j = 0;
@@ -137,5 +127,21 @@ void	check_path(t_data *data)
 		}
 		i++;
 	}
-	free_matrix(map);
+	free_matrix(map);	
+}
+
+void	check_path(t_data *data)
+{
+	int		i;
+	int		j;
+	char	**map;
+
+	i = 0;
+	j = 0;
+	map = copy_map(data);
+	//map = NULL;
+	flood_fill(data->x, data->y, map, data);
+	if (!map)
+		ft_error_msg(data->map, "Error: Error checking path\n");
+	check_path_aux(data, map, i, j);
 }
