@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+         #
+#    By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/03 14:36:05 by svalente          #+#    #+#              #
-#    Updated: 2022/11/16 16:11:02 by svalente         ###   ########.fr        #
+#    Updated: 2023/08/31 22:15:36 by svalente         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,10 +26,13 @@ CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 AR = ar rcs
 
+#$(VERBOSE).SILENT:
+
 all: $(NAME)
 
 $(NAME): $(SRC:=.o)
 			$(AR) $(NAME) $(SRC:=.o)
+			echo -e "\n[libft successfully compiled :D]"
 
 bonus: $(SRC:=.o) $(BONUS:=.o)
 		$(AR) $(NAME) $(SRC:=.o) $(BONUS:=.o)

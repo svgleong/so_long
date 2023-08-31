@@ -6,7 +6,7 @@
 #    By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/08 10:43:02 by svalente          #+#    #+#              #
-#    Updated: 2023/08/31 20:55:17 by svalente         ###   ########.fr        #
+#    Updated: 2023/08/31 22:15:54 by svalente         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,7 @@ $(NAME): $(OBJ)
 		make -C $(FT_PRINTF_PATH)
 		make -s -C minilibx-linux
 		$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(FT_PRINTF) $(LMLX_FLAGS) $(MLX_INCLUDE) -o $(NAME)
+		echo -e "\n[so_long successfully compiled :D]"
 
 clean:
 		make clean -C $(LIBFT_PATH)
