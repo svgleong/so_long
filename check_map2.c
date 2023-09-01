@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:29:49 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/31 22:07:32 by svalente         ###   ########.fr       */
+/*   Updated: 2023/09/01 11:01:05 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,19 @@ char	**copy_map(t_data *data)
 	}
 	return (copy);
 }
+
+/* void	print_map(char **map)
+{
+	int i = 0;
+	
+	if(!map)
+		return ;
+	while (map[i])
+	{
+		printf("%s", map[i]);
+		i++;
+	}
+} */
 
 /* void	flood_fill(int x, int y, char **map)
 {
@@ -125,7 +138,7 @@ void	check_path_aux(t_data *data, char **map, int i, int j)
 		}
 		i++;
 	}
-	free_matrix(map);	
+	free_matrix(map);
 }
 
 void	check_path(t_data *data)
@@ -137,7 +150,6 @@ void	check_path(t_data *data)
 	i = 0;
 	j = 0;
 	map = copy_map(data);
-	//map = NULL;
 	flood_fill(data->x, data->y, map, data);
 	if (!map)
 		ft_error_msg(data->map, "Error: Error checking path\n");

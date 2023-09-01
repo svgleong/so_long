@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 12:44:54 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/31 21:50:05 by svalente         ###   ########.fr       */
+/*   Updated: 2023/09/01 10:16:34 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG
-# define SO_LONG
+#ifndef SO_LONG_H
+# define SO_LONG_H
 
 # include "minilibx-linux/mlx.h"
 # include "Libft/libft.h"
@@ -63,8 +63,8 @@ void	check_path(t_data *data);
 void	check_map(t_data *data);
 int		map_size(char **map, char side);
 int		create_window(t_data *data);
-int		handle_keypress(int keysym, t_data *data);
 int		handle_input(int key, t_data *data);
+void	print_n_moves(t_data *data);
 void	window_full_load(t_data *data);
 int		window_update(t_data *data);
 int		leave(t_data *data);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   make_window_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 11:43:05 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/31 21:43:56 by svalente         ###   ########.fr       */
+/*   Updated: 2023/09/01 14:19:36 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,16 @@ int	handle_input(int key, t_data *data)
 		move_down(data->map, data);
 	window_update(data);
 	return (0);
+}
+
+void	print_n_moves(t_data *data)
+{
+	char	*number;
+	char	*steps;
+
+	number = ft_itoa(data->n_moves);
+	steps = ft_strjoin("Number of moves: ", number);
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 30, 30, 0x000FFFFF, steps);
+	free(number);
+	free(steps);
 }

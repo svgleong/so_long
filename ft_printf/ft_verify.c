@@ -6,14 +6,14 @@
 /*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:50:12 by svalente          #+#    #+#             */
-/*   Updated: 2022/11/30 11:59:42 by svalente         ###   ########.fr       */
+/*   Updated: 2023/09/01 10:17:01 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 int	ft_verify(const char letter, va_list args)
-{	
+{
 	if (letter == 'c')
 		return (ft_putchar(va_arg(args, int)));
 	else if (letter == 's')

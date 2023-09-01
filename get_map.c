@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 14:10:57 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/31 21:23:21 by svalente         ###   ########.fr       */
+/*   Updated: 2023/09/01 11:22:46 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 static char	**create_matrix(t_list *list, int rows_counter);
+static void	clear_and_close(t_list **lines, int fd);
 
 char	**get_map(char *path)
 {
@@ -24,6 +25,7 @@ char	**get_map(char *path)
 
 	rows_counter = 0;
 	lines = NULL;
+	map = NULL;
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
 		ft_error_handler("Error opening the file\n", fd);
@@ -38,9 +40,14 @@ char	**get_map(char *path)
 	}
 	if (lines->content != NULL)
 		map = create_matrix(lines, rows_counter);
-	lstclear(&lines);
-	close(fd);
+	clear_and_close(&lines, fd);
 	return (map);
+}
+
+static void	clear_and_close(t_list **lines, int fd)
+{
+	lstclear(lines);
+	close(fd);
 }
 
 static char	**create_matrix(t_list *list, int rows_counter)

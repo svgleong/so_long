@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   make_window.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 22:38:10 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/31 21:47:02 by svalente         ###   ########.fr       */
+/*   Updated: 2023/09/01 14:24:50 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,21 +68,9 @@ void	window_full_load(t_data *data)
 	}
 }
 
-void	print_n_moves(t_data *data)
-{
-	char	*number;
-	char	*steps;
-
-	number = ft_itoa(data->n_moves);
-	steps = ft_strjoin("Number of moves: ", number);
-	mlx_string_put(data->mlx_ptr, data->win_ptr, 30, 30, 0x000FFFFF, steps);
-	free(number);
-	free(steps);
-}
-
 int	window_update(t_data *data)
 {
-	mlx_clear_window(data->mlx_ptr, data->win_ptr);
+	//mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	window_full_load(data);
 	print_n_moves(data);
 	return (0);
@@ -105,7 +93,7 @@ int	create_window(t_data *data)
 	print_n_moves(data);
 	//mlx_key_hook(data->win_ptr, &window_update, data);
 	mlx_key_hook(data->win_ptr, &handle_input, data);
-	mlx_hook(data->win_ptr, 17, 0, leave, data);
+	mlx_hook(data->win_ptr, 17, 0L, leave, data);
 	mlx_loop(data->mlx_ptr);
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 21:56:48 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/31 21:43:42 by svalente         ###   ########.fr       */
+/*   Updated: 2023/09/01 10:15:25 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	move_left(char **map, t_data *data)
 			if (map[i][j] == 'P' && (map[i][j - 1] == '0'
 				|| map[i][j - 1] == 'C' || map[i][j - 1] == 'K'))
 			{
-				check_enemy(data, i , j - 1);
+				check_enemy(data, i, j - 1);
 				map[i][j] = '0';
 				map[i][j - 1] = 'P';
 				data->n_moves++;
