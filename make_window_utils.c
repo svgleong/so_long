@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 11:43:05 by svalente          #+#    #+#             */
-/*   Updated: 2023/09/03 15:13:49 by svalente         ###   ########.fr       */
+/*   Updated: 2023/09/03 15:39:12 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	handle_input(int key, t_data *data)
 {
 	if (key == XK_Escape)
 	{
-		ft_putstr_fd("You gave up too quickly...\n", 1);	
+		ft_putstr_fd("You gave up too quickly...\n", 1);
 		leave(data);
 	}
 	else if (key == XK_Left || key == XK_a)

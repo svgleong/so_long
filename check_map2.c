@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:29:49 by svalente          #+#    #+#             */
-/*   Updated: 2023/09/03 14:54:04 by svalente         ###   ########.fr       */
+/*   Updated: 2023/09/03 15:38:31 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,47 +55,6 @@ char	**copy_map(t_data *data)
 	}
 	return (copy);
 }
-
-/* void	print_map(char **map)
-{
-	int i = 0;
-	
-	if(!map)
-		return ;
-	while (map[i])
-	{
-		printf("%s", map[i]);
-		i++;
-	}
-} */
-
-/* void	flood_fill(int x, int y, char **map)
-{
-	if (map[y][x + 1] != 'z' && map[y][x + 1] != '1' && map[y][x + 1] != 'E' 
-		&& map[y][x + 1] != 'K')
-	{
-		map[y][x + 1] = 'z';
-		flood_fill(x + 1, y, map);
-	}
-	if (map[y][x - 1] != 'z' && map[y][x - 1] != '1' && map[y][x - 1] != 'E' 
-		&& map[y][x - 1] != 'K')
-	{
-		map[y][x - 1] = 'z';
-		flood_fill(x - 1, y, map);
-	}
-	if (map[y + 1][x] != 'z' && map[y + 1][x] != '1' && map[y + 1][x] != 'E' 
-		&& map[y + 1][x] != 'K')
-	{
-		map[y + 1][x] = 'z';
-		flood_fill(x, y + 1, map);
-	}
-	if (map[y - 1][x] != 'z' && map[y - 1][x] != '1' && map[y - 1][x] != 'E' 
-		&& map[y - 1][x] != 'K')
-	{
-		map[y - 1][x] = 'z';
-		flood_fill(x, y - 1, map);
-	}
-} */
 
 void	flood_fill(int x, int y, char **map, t_data *data)
 {
@@ -155,3 +114,16 @@ void	check_path(t_data *data)
 		ft_error_msg(data->map, "Error: Error checking path\n");
 	check_path_aux(data, map, i, j);
 }
+
+/* void	print_map(char **map)
+{
+	int i = 0;
+	
+	if(!map)
+		return ;
+	while (map[i])
+	{
+		printf("%s", map[i]);
+		i++;
+	}
+} */
