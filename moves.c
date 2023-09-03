@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 21:56:48 by svalente          #+#    #+#             */
-/*   Updated: 2023/09/01 10:15:25 by svalente         ###   ########.fr       */
+/*   Updated: 2023/09/03 15:07:33 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	check_enemy(t_data *data, int i, int j)
 {
 	if (data->map[i][j] && data->map[i][j] == 'K')
 	{
-		ft_putstr_fd("Caught by enemy :(\n", 1);
+		ft_putstr_fd("Ken got in your way... next time focus on the books!", 1);
+		ft_putstr_fd("\n", 1);
 		leave(data);
 	}
 }

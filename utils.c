@@ -6,7 +6,7 @@
 /*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 16:25:27 by svalente          #+#    #+#             */
-/*   Updated: 2023/08/31 21:47:22 by svalente         ###   ########.fr       */
+/*   Updated: 2023/09/03 15:01:54 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_error_msg(char **map, char *msg)
 
 void	win_game(t_data *data)
 {
-	ft_putstr_fd("You Win!!\n", 1);
+	ft_putstr_fd("Congratulations on your acceptance to Harvard!!\n", 1);
 	leave(data);
 }
 

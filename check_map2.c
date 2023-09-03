@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svalente <svalente@student.42lisboa.com >  +#+  +:+       +#+        */
+/*   By: svalente <svalente@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:29:49 by svalente          #+#    #+#             */
-/*   Updated: 2023/09/01 11:01:05 by svalente         ###   ########.fr       */
+/*   Updated: 2023/09/03 14:54:04 by svalente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void	flood_fill(int x, int y, char **map, t_data *data)
 {
 	if (!map)
 		return ;
-	if (x < 0 || x >= data->win_size_x || y < 0 || y >= data->win_size_y
+	if (x < 0 || x > data->win_size_x || y < 0 || y > data->win_size_y
 		|| map[y][x] == 'z' || map[y][x] == '1' || map[y][x] == 'E'
 		|| map[y][x] == 'K')
 		return ;
